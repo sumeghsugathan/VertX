@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VertX Energies & Electrical Systems | Solar Energy Solutions</title>
   <meta name="description" content="VertX Energies & Electrical Systems - Premium Residential and Commercial Solar Energy Solutions. Mob: +91 9496395506, +91 7736999220. Email: vertxenergies@gmail.com">
-  <meta name="keywords" content="VertX Energies, Solar Energy, Solar Installation, Residential Solar, Commercial Solar, Renewable Energy">
+  <meta name="keywords" content="VertX Energies, Solar Energy, Solar Installation, Residential Solar, Commercial Solar, Renewable Energy, Solar Calculator">
 
   <!-- Favicon with Cache Buster -->
-  <link rel="icon" type="image/png" href="assets/logo.png?v=5">
+  <link rel="icon" type="image/png" href="assets/logo.png?v=6">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Custom Design System CSS -->
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
       <!-- Official VertX Logo -->
       <a href="#" class="logo" aria-label="VertX Energies Home">
         <div class="logo-icon">
-          <img src="assets/logo.png?v=5" alt="VertX Logo" class="logo-img">
+          <img src="assets/logo.png?v=6" alt="VertX Logo" class="logo-img">
         </div>
         <div class="logo-text">
           <span class="logo-title">
@@ -68,7 +68,7 @@
         <h1>Power Your Future with Solar</h1>
         <p>High-performance residential and commercial solar energy solutions engineered for long-term savings, maximum efficiency, and total power reliability.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get Free Quote</a>
+          <a href="#calculator" class="btn btn-primary">Calculate kW Needed</a>
           <a href="#services" class="btn btn-secondary">Explore Services</a>
         </div>
       </div>
@@ -112,7 +112,7 @@
           <!-- Floating Trust Badge -->
           <div class="hero-badge">
             <div class="hero-badge-icon" style="background:transparent; padding:0;">
-              <img src="assets/logo.png?v=5" alt="VertX Badge" style="height:36px; width:auto; border-radius:4px;">
+              <img src="assets/logo.png?v=6" alt="VertX Badge" style="height:36px; width:auto; border-radius:4px;">
             </div>
             <div class="hero-badge-text">
               <span class="hero-badge-title"><span class="brand-vert-footer">Vert</span><span class="brand-x">X</span></span>
@@ -158,7 +158,7 @@
               Net metering assistance & setup
             </li>
           </ul>
-          <a href="#contact" class="btn btn-secondary">Get Residential Quote</a>
+          <a href="#calculator" class="btn btn-secondary">Calculate Home Solar kW</a>
         </div>
 
         <!-- Card 2: Commercial Solar -->
@@ -188,13 +188,88 @@
               Accelerated payback & tax benefits
             </li>
           </ul>
-          <a href="#contact" class="btn btn-secondary">Get Commercial Quote</a>
+          <a href="#calculator" class="btn btn-secondary">Calculate Commercial kW</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: WHY CHOOSE VERTX -->
+  <!-- SECTION 4: SOLAR SYSTEM SIZING & SAVINGS CALCULATOR -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Solar Sizing Tool</span>
+        <h2>Calculate Your Ideal Solar System kW</h2>
+        <p>Find out the exact solar kW capacity required for your property, estimated monthly generation, required roof space, and annual bill savings.</p>
+      </div>
+
+      <div class="calculator-card">
+        <div class="calculator-grid">
+          <!-- Input Controls -->
+          <div class="calc-inputs">
+            <h3>Your Monthly Power Details</h3>
+            
+            <!-- Property Type Selector -->
+            <div class="calc-group">
+              <label>Property Type</label>
+              <div class="calc-toggle-btn-group">
+                <button type="button" class="calc-type-btn active" data-type="residential">
+                  🏠 Residential
+                </button>
+                <button type="button" class="calc-type-btn" data-type="commercial">
+                  🏢 Commercial
+                </button>
+              </div>
+            </div>
+
+            <!-- Monthly Bill Slider -->
+            <div class="calc-group">
+              <div class="calc-label-row">
+                <label for="monthlyBillInput">Monthly Electricity Bill</label>
+                <span class="calc-val-display" id="billDisplay">₹ 4,000 / mo</span>
+              </div>
+              <input type="range" id="monthlyBillInput" min="1000" max="50000" step="500" value="4000" class="calc-range">
+              <div class="range-ticks">
+                <span>₹1,000</span>
+                <span>₹25,000</span>
+                <span>₹50,000+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculated Output Card -->
+          <div class="calc-outputs">
+            <div class="calc-hero-result">
+              <span class="calc-result-label">Recommended Solar Capacity</span>
+              <div class="calc-result-value"><span id="recommendedKw">4</span> <small>kW</small></div>
+              <p class="calc-result-sub" id="recommendedSub">Ideal for your ₹4,000 monthly power bill</p>
+            </div>
+
+            <div class="calc-metrics-grid">
+              <div class="calc-metric-card">
+                <span class="metric-label">Monthly Generation</span>
+                <span class="metric-val" id="monthlyUnits">480 Units / mo</span>
+              </div>
+              <div class="calc-metric-card">
+                <span class="metric-label">Est. Roof Area</span>
+                <span class="metric-val" id="roofArea">360 sq. ft.</span>
+              </div>
+              <div class="calc-metric-card full-width">
+                <span class="metric-label">Estimated Annual Savings</span>
+                <span class="metric-val highlight" id="annualSavings">₹ 43,200 / yr</span>
+              </div>
+            </div>
+
+            <button type="button" id="calcQuoteBtn" class="btn btn-primary calc-submit-btn">
+              Get Free Quote for <span id="btnKwText">4 kW Home System</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: WHY CHOOSE VERTX -->
   <section class="why-section">
     <div class="container">
       <div class="section-header">
@@ -253,7 +328,7 @@
     </div>
   </section>
 
-  <!-- SECTION 5: HOW IT WORKS -->
+  <!-- SECTION 6: HOW IT WORKS -->
   <section class="process-section">
     <div class="container">
       <div class="section-header">
@@ -306,7 +381,7 @@
     </div>
   </section>
 
-  <!-- SECTION 6: CONTACT / QUOTE FORM -->
+  <!-- SECTION 7: CONTACT / QUOTE FORM -->
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="contact-grid">
@@ -319,7 +394,7 @@
             <!-- Company -->
             <div class="contact-detail-item">
               <div class="contact-detail-icon logo-badge-icon">
-                <img src="assets/logo.png?v=5" alt="VertX Logo">
+                <img src="assets/logo.png?v=6" alt="VertX Logo">
               </div>
               <div class="contact-detail-text">
                 <label>Company</label>
@@ -409,7 +484,7 @@
     </div>
   </section>
 
-  <!-- SECTION 7: FOOTER -->
+  <!-- SECTION 8: FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -417,7 +492,7 @@
         <div class="footer-about">
           <a href="#" class="logo">
             <div class="logo-icon">
-              <img src="assets/logo.png?v=5" alt="VertX Logo" class="footer-logo-img">
+              <img src="assets/logo.png?v=6" alt="VertX Logo" class="footer-logo-img">
             </div>
             <div class="logo-text">
               <span class="logo-title">
@@ -435,6 +510,7 @@
           <ul class="footer-links">
             <li><a href="#">Home</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#calculator">Solar Calculator</a></li>
             <li><a href="#contact">Get Free Quote</a></li>
           </ul>
         </div>

@@ -478,11 +478,217 @@ a {
   flex-shrink: 0;
 }
 
-/* Why Choose Section */
-.why-section {
+/* SOLAR CALCULATOR SECTION */
+.calculator-section {
   padding: 100px 0;
   background-color: var(--light-gray);
   border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calculator-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.calc-inputs {
+  padding: 44px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.calc-inputs h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.calc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calc-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calc-label-row label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+.calc-val-display {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(30, 95, 217, 0.2);
+}
+
+.calc-range {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #E2E8F0;
+  outline: none;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.range-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.calc-toggle-btn-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: var(--light-gray);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.calc-type-btn {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.calc-type-btn.active {
+  background: var(--white);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Calculator Outputs */
+.calc-outputs {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: var(--white);
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calc-hero-result {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.calc-result-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  font-weight: 700;
+}
+
+.calc-result-value {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #60A5FA;
+  line-height: 1;
+  margin: 10px 0 6px;
+}
+
+.calc-result-value small {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.calc-result-sub {
+  font-size: 0.92rem;
+  color: #CBD5E1;
+}
+
+.calc-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.calc-metric-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calc-metric-card.full-width {
+  grid-column: span 2;
+  background: rgba(30, 95, 217, 0.2);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.metric-val.highlight {
+  font-size: 1.4rem;
+  color: #34D399;
+}
+
+.calc-submit-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.05rem;
+}
+
+/* Why Choose Section */
+.why-section {
+  padding: 100px 0;
+  background-color: var(--white);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -531,7 +737,7 @@ a {
 /* How It Works Section */
 .process-section {
   padding: 100px 0;
-  background-color: var(--white);
+  background-color: var(--light-gray);
 }
 
 .process-grid {
@@ -599,7 +805,7 @@ a {
 /* Contact Section */
 .contact-section {
   padding: 100px 0;
-  background-color: var(--light-gray);
+  background-color: var(--white);
   border-top: 1px solid var(--border-color);
 }
 
@@ -855,6 +1061,15 @@ textarea.form-control {
     gap: 40px;
   }
   
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-inputs {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
   .why-grid, .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -940,6 +1155,14 @@ textarea.form-control {
 
   .hero-badge-sub {
     font-size: 0.75rem;
+  }
+
+  .calc-inputs, .calc-outputs {
+    padding: 24px 20px;
+  }
+
+  .calc-result-value {
+    font-size: 2.75rem;
   }
 
   .service-card {

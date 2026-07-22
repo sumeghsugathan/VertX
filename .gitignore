@@ -1,0 +1,5 @@
+# Ignore temporary logs and OS metadata
+.system_generated/
+*.log
+.DS_Store
+Thumbs.db

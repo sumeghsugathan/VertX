@@ -1,7 +1,7 @@
 /* VertX Energies and Electrical Systems - Interactive JavaScript */
 document.addEventListener('DOMContentLoaded', () => {
-  // SOLAR SIZING & SAVINGS CALCULATOR LOGIC
-  const monthlyBillInput = document.getElementById('monthlyBillInput');
+  // SOLAR SIZING & SAVINGS CALCULATOR LOGIC (Bimonthly KSEB / Utility Tariff Standard)
+  const bimonthlyBillInput = document.getElementById('monthlyBillInput');
   const billDisplay = document.getElementById('billDisplay');
   const recommendedKw = document.getElementById('recommendedKw');
   const recommendedSub = document.getElementById('recommendedSub');
@@ -15,47 +15,47 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentType = 'residential'; // 'residential' or 'commercial'
 
   function calculateSolar() {
-    if (!monthlyBillInput) return;
+    if (!bimonthlyBillInput) return;
 
-    const billVal = parseInt(monthlyBillInput.value, 10);
+    const bimonthlyBill = parseInt(bimonthlyBillInput.value, 10);
     
-    // Display formatted bill
+    // Display formatted 2-month bill
     if (billDisplay) {
-      billDisplay.textContent = `₹ ${billVal.toLocaleString('en-IN')} / mo`;
+      billDisplay.textContent = `₹ ${bimonthlyBill.toLocaleString('en-IN')} / 2 mos`;
     }
 
-    // Tariff rates: ₹7.5/unit for residential, ₹9.0/unit for commercial
-    const tariffRate = currentType === 'residential' ? 7.5 : 9.0;
+    // Tariff rates per unit: ₹7.2/unit for residential (bimonthly slab avg), ₹9.0/unit for commercial
+    const tariffRate = currentType === 'residential' ? 7.2 : 9.0;
 
-    // 1 kW generates approx 120 units (kWh) per month
-    const unitsPerKwMonth = 120;
+    // 1 kW generates approx 240 units (kWh) per 2-month billing cycle (120 units/month)
+    const unitsPerKwBimonthly = 240;
 
-    // Calculate required monthly units
-    const monthlyUnitsRequired = billVal / tariffRate;
+    // Calculate required units per 2-month cycle
+    const bimonthlyUnitsRequired = bimonthlyBill / tariffRate;
 
     // Recommended System Capacity in kW (minimum 1 kW)
-    let kw = Math.round(monthlyUnitsRequired / unitsPerKwMonth);
+    let kw = Math.round(bimonthlyUnitsRequired / unitsPerKwBimonthly);
     if (kw < 1) kw = 1;
 
-    // Monthly Generation & Roof Area
-    const generationUnits = kw * unitsPerKwMonth;
+    // Bimonthly Generation & Roof Area
+    const generationUnitsBimonthly = kw * unitsPerKwBimonthly;
     const estimatedRoofArea = kw * 90; // ~90 sq.ft per kW
 
-    // Annual Savings (approx 90% of electricity bill saved per year)
-    const yearlySavings = Math.round(billVal * 12 * 0.90);
+    // Annual Savings (6 bimonthly billing cycles per year, ~90% savings)
+    const yearlySavings = Math.round(bimonthlyBill * 6 * 0.90);
 
     // Update DOM outputs
     if (recommendedKw) recommendedKw.textContent = kw;
-    if (recommendedSub) recommendedSub.textContent = `Ideal for your ₹${billVal.toLocaleString('en-IN')} monthly power bill`;
-    if (monthlyUnits) monthlyUnits.textContent = `${generationUnits.toLocaleString('en-IN')} Units / mo`;
+    if (recommendedSub) recommendedSub.textContent = `Ideal for your ₹${bimonthlyBill.toLocaleString('en-IN')} (2-month) power bill`;
+    if (monthlyUnits) monthlyUnits.textContent = `${generationUnitsBimonthly.toLocaleString('en-IN')} Units / 2 mos`;
     if (roofArea) roofArea.textContent = `${estimatedRoofArea.toLocaleString('en-IN')} sq. ft.`;
     if (annualSavings) annualSavings.textContent = `₹ ${yearlySavings.toLocaleString('en-IN')} / yr`;
     if (btnKwText) btnKwText.textContent = `${kw} kW ${currentType === 'residential' ? 'Home' : 'Commercial'} System`;
   }
 
-  // Event listener for monthly bill slider
-  if (monthlyBillInput) {
-    monthlyBillInput.addEventListener('input', calculateSolar);
+  // Event listener for bimonthly bill slider
+  if (bimonthlyBillInput) {
+    bimonthlyBillInput.addEventListener('input', calculateSolar);
   }
 
   // Event listeners for Property Type buttons
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (calcQuoteBtn) {
     calcQuoteBtn.addEventListener('click', () => {
       const kwVal = recommendedKw ? recommendedKw.textContent : '3';
-      const billVal = monthlyBillInput ? parseInt(monthlyBillInput.value, 10).toLocaleString('en-IN') : '4,000';
+      const billVal = bimonthlyBillInput ? parseInt(bimonthlyBillInput.value, 10).toLocaleString('en-IN') : '5,000';
       
       const propertySelect = document.getElementById('propertyType');
       const messageTextarea = document.getElementById('message');
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (messageTextarea) {
-        messageTextarea.value = `I used your Solar Calculator and would like a quote for a ${kwVal} kW ${currentType === 'residential' ? 'Residential' : 'Commercial'} Solar System. (Average monthly bill: ₹${billVal})`;
+        messageTextarea.value = `I used your Solar Calculator and would like a quote for a ${kwVal} kW ${currentType === 'residential' ? 'Residential' : 'Commercial'} Solar System. (2-Month electricity bill: ₹${billVal})`;
       }
 
       // Smooth scroll to Contact Form

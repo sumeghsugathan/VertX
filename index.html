@@ -8,7 +8,7 @@
   <meta name="keywords" content="VertX Energies, Solar Energy, Solar Installation, Residential Solar, Commercial Solar, Renewable Energy, Solar Calculator">
 
   <!-- Favicon with Cache Buster -->
-  <link rel="icon" type="image/png" href="assets/logo.png?v=6">
+  <link rel="icon" type="image/png" href="assets/logo.png?v=7">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Custom Design System CSS -->
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/styles.css?v=7">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
       <!-- Official VertX Logo -->
       <a href="#" class="logo" aria-label="VertX Energies Home">
         <div class="logo-icon">
-          <img src="assets/logo.png?v=6" alt="VertX Logo" class="logo-img">
+          <img src="assets/logo.png?v=7" alt="VertX Logo" class="logo-img">
         </div>
         <div class="logo-text">
           <span class="logo-title">
@@ -112,7 +112,7 @@
           <!-- Floating Trust Badge -->
           <div class="hero-badge">
             <div class="hero-badge-icon" style="background:transparent; padding:0;">
-              <img src="assets/logo.png?v=6" alt="VertX Badge" style="height:36px; width:auto; border-radius:4px;">
+              <img src="assets/logo.png?v=7" alt="VertX Badge" style="height:36px; width:auto; border-radius:4px;">
             </div>
             <div class="hero-badge-text">
               <span class="hero-badge-title"><span class="brand-vert-footer">Vert</span><span class="brand-x">X</span></span>
@@ -194,20 +194,20 @@
     </div>
   </section>
 
-  <!-- SECTION 4: SOLAR SYSTEM SIZING & SAVINGS CALCULATOR -->
+  <!-- SECTION 4: SOLAR SYSTEM SIZING & SAVINGS CALCULATOR (Bimonthly Billing) -->
   <section class="calculator-section" id="calculator">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Solar Sizing Tool</span>
         <h2>Calculate Your Ideal Solar System kW</h2>
-        <p>Find out the exact solar kW capacity required for your property, estimated monthly generation, required roof space, and annual bill savings.</p>
+        <p>Based on your 2-month electricity bill, find out the exact solar kW capacity required for your property, generation units, required roof space, and annual savings.</p>
       </div>
 
       <div class="calculator-card">
         <div class="calculator-grid">
           <!-- Input Controls -->
           <div class="calc-inputs">
-            <h3>Your Monthly Power Details</h3>
+            <h3>Your 2-Month Electricity Bill</h3>
             
             <!-- Property Type Selector -->
             <div class="calc-group">
@@ -222,17 +222,17 @@
               </div>
             </div>
 
-            <!-- Monthly Bill Slider -->
+            <!-- Bimonthly Bill Slider -->
             <div class="calc-group">
               <div class="calc-label-row">
-                <label for="monthlyBillInput">Monthly Electricity Bill</label>
-                <span class="calc-val-display" id="billDisplay">₹ 4,000 / mo</span>
+                <label for="monthlyBillInput">Bimonthly Bill (Every 2 Months)</label>
+                <span class="calc-val-display" id="billDisplay">₹ 5,000 / 2 mos</span>
               </div>
-              <input type="range" id="monthlyBillInput" min="1000" max="50000" step="500" value="4000" class="calc-range">
+              <input type="range" id="monthlyBillInput" min="1000" max="60000" step="500" value="5000" class="calc-range">
               <div class="range-ticks">
                 <span>₹1,000</span>
-                <span>₹25,000</span>
-                <span>₹50,000+</span>
+                <span>₹30,000</span>
+                <span>₹60,000+</span>
               </div>
             </div>
           </div>
@@ -241,27 +241,27 @@
           <div class="calc-outputs">
             <div class="calc-hero-result">
               <span class="calc-result-label">Recommended Solar Capacity</span>
-              <div class="calc-result-value"><span id="recommendedKw">4</span> <small>kW</small></div>
-              <p class="calc-result-sub" id="recommendedSub">Ideal for your ₹4,000 monthly power bill</p>
+              <div class="calc-result-value"><span id="recommendedKw">3</span> <small>kW</small></div>
+              <p class="calc-result-sub" id="recommendedSub">Ideal for your ₹5,000 (2-month) power bill</p>
             </div>
 
             <div class="calc-metrics-grid">
               <div class="calc-metric-card">
-                <span class="metric-label">Monthly Generation</span>
-                <span class="metric-val" id="monthlyUnits">480 Units / mo</span>
+                <span class="metric-label">Bimonthly Generation</span>
+                <span class="metric-val" id="monthlyUnits">720 Units / 2 mos</span>
               </div>
               <div class="calc-metric-card">
                 <span class="metric-label">Est. Roof Area</span>
-                <span class="metric-val" id="roofArea">360 sq. ft.</span>
+                <span class="metric-val" id="roofArea">270 sq. ft.</span>
               </div>
               <div class="calc-metric-card full-width">
                 <span class="metric-label">Estimated Annual Savings</span>
-                <span class="metric-val highlight" id="annualSavings">₹ 43,200 / yr</span>
+                <span class="metric-val highlight" id="annualSavings">₹ 27,000 / yr</span>
               </div>
             </div>
 
             <button type="button" id="calcQuoteBtn" class="btn btn-primary calc-submit-btn">
-              Get Free Quote for <span id="btnKwText">4 kW Home System</span>
+              Get Free Quote for <span id="btnKwText">3 kW Home System</span>
             </button>
           </div>
         </div>
@@ -394,7 +394,7 @@
             <!-- Company -->
             <div class="contact-detail-item">
               <div class="contact-detail-icon logo-badge-icon">
-                <img src="assets/logo.png?v=6" alt="VertX Logo">
+                <img src="assets/logo.png?v=7" alt="VertX Logo">
               </div>
               <div class="contact-detail-text">
                 <label>Company</label>
@@ -472,7 +472,7 @@
               <!-- Message -->
               <div class="form-group full-width">
                 <label for="message">Message / Details</label>
-                <textarea id="message" class="form-control" placeholder="Tell us about your rooftop size, monthly power bill, or energy requirements..."></textarea>
+                <textarea id="message" class="form-control" placeholder="Tell us about your rooftop size, electricity bill, or energy requirements..."></textarea>
               </div>
 
               <!-- Submit Button -->
@@ -492,7 +492,7 @@
         <div class="footer-about">
           <a href="#" class="logo">
             <div class="logo-icon">
-              <img src="assets/logo.png?v=6" alt="VertX Logo" class="footer-logo-img">
+              <img src="assets/logo.png?v=7" alt="VertX Logo" class="footer-logo-img">
             </div>
             <div class="logo-text">
               <span class="logo-title">

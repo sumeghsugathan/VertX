@@ -11,6 +11,9 @@ const firebaseConfig = {
   measurementId: "G-6BTMNY4CGG"
 };
 
+// Web3Forms Access Key for Instant Email Notifications to vertxenergies@gmail.com
+const WEB3FORMS_ACCESS_KEY = "6d1b68e8-a4ee-4b75-b3f7-ab923edcc461";
+
 // Initialize Firebase & Firestore Client
 let db = null;
 try {
@@ -122,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact Form Handling - Database Storage ONLY (No WhatsApp Redirect)
+  // Contact Form Handling - Save to Database + Instant Email Notification
   const quoteForm = document.getElementById('quoteForm');
   const successAlert = document.getElementById('formSuccessAlert');
 
@@ -137,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const propertyType = document.getElementById('propertyType').value;
       const message = document.getElementById('message').value.trim();
 
-      // Lead object for database
+      // 1. Save Lead Data to Firebase Firestore Database
       const leadData = {
         name: name,
         phone: phone,
@@ -149,16 +152,43 @@ document.addEventListener('DOMContentLoaded', () => {
         status: 'New'
       };
 
-      // Store directly in Firebase Firestore collection 'quote_requests'
       if (db) {
         db.collection('quote_requests').add(leadData)
           .then((docRef) => {
-            console.log('Lead record saved successfully to Firestore DB with ID:', docRef.id);
+            console.log('Lead record saved to Firestore DB with ID:', docRef.id);
           })
           .catch((error) => {
             console.error('Firestore save error:', error);
           });
       }
+
+      // 2. Send Instant Email Notification to vertxenergies@gmail.com
+      const emailPayload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `☀️ New Solar Lead: ${name} (${propertyType})`,
+        from_name: "VertX Website",
+        name: name,
+        phone: phone,
+        email: email,
+        property_type: propertyType,
+        message: message
+      };
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailPayload)
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Email notification status:', result);
+      })
+      .catch(err => {
+        console.error('Email notification error:', err);
+      });
 
       // Display on-page success alert
       if (successAlert) {

@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact Form Handling with Live Database Storage + WhatsApp Submission
+  // Contact Form Handling - Database Storage ONLY (No WhatsApp Redirect)
   const quoteForm = document.getElementById('quoteForm');
   const successAlert = document.getElementById('formSuccessAlert');
 
@@ -149,41 +149,23 @@ document.addEventListener('DOMContentLoaded', () => {
         status: 'New'
       };
 
-      // Store in Firebase Firestore collection 'quote_requests'
+      // Store directly in Firebase Firestore collection 'quote_requests'
       if (db) {
         db.collection('quote_requests').add(leadData)
           .then((docRef) => {
-            console.log('Lead record saved to Firestore DB with ID:', docRef.id);
+            console.log('Lead record saved successfully to Firestore DB with ID:', docRef.id);
           })
           .catch((error) => {
             console.error('Firestore save error:', error);
           });
       }
 
-      // Construct formatted WhatsApp message
-      const formattedMessage = 
-`☀️ *New Solar Quote Request - VertX Energies*
-
-👤 *Name:* ${name}
-📞 *Phone:* ${phone}
-✉️ *Email:* ${email}
-🏠 *Property Type:* ${propertyType}
-💬 *Details:* ${message ? message : 'No additional details provided.'}`;
-
-      // Encode for WhatsApp URL
-      const whatsappNumber = '919496395506'; // WhatsApp Target Number
-      const encodedText = encodeURIComponent(formattedMessage);
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-
-      // Show success alert on page
+      // Display on-page success alert
       if (successAlert) {
-        successAlert.innerHTML = '✅ <strong>Thank you!</strong> Your quote request has been recorded. Opening WhatsApp...';
+        successAlert.innerHTML = '✅ <strong>Thank you!</strong> Your quote request has been submitted successfully. Our team will contact you shortly.';
         successAlert.style.display = 'block';
         successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-
-      // Open WhatsApp chat in a new tab / app window
-      window.open(whatsappUrl, '_blank');
 
       // Reset form fields
       quoteForm.reset();

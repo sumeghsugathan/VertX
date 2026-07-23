@@ -1,25 +1,25 @@
 /* VertX Energies and Electrical Systems - Interactive JavaScript */
 
-// Firebase Configuration
-// Replace the values below with your Firebase Project Configuration from https://console.firebase.google.com
+// VertX Live Firebase Configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyA7v-xkc9Q-1GlFBkOyDsefiQ6kyq_djPo",
   authDomain: "vertx-energies.firebaseapp.com",
   projectId: "vertx-energies",
-  storageBucket: "vertx-energies.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  storageBucket: "vertx-energies.firebasestorage.app",
+  messagingSenderId: "743655920046",
+  appId: "1:743655920046:web:4b8e079c8e3bc37451f83f",
+  measurementId: "G-6BTMNY4CGG"
 };
 
 // Initialize Firebase & Firestore Client
 let db = null;
 try {
-  if (typeof firebase !== 'undefined' && firebaseConfig.projectId && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+  if (typeof firebase !== 'undefined' && firebaseConfig.projectId) {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
     }
     db = firebase.firestore();
-    console.log('VertX Firebase Firestore initialized.');
+    console.log('VertX Live Firebase Firestore connected successfully.');
   }
 } catch (err) {
   console.warn('Firebase initialization status:', err.message);
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact Form Handling with Database Storage + WhatsApp Submission
+  // Contact Form Handling with Live Database Storage + WhatsApp Submission
   const quoteForm = document.getElementById('quoteForm');
   const successAlert = document.getElementById('formSuccessAlert');
 
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         status: 'New'
       };
 
-      // Store in Firebase Firestore collection 'quote_requests' if initialized
+      // Store in Firebase Firestore collection 'quote_requests'
       if (db) {
         db.collection('quote_requests').add(leadData)
           .then((docRef) => {
@@ -158,8 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
           .catch((error) => {
             console.error('Firestore save error:', error);
           });
-      } else {
-        console.log('Form submission captured (Add Firebase API key in js/main.js to write live to cloud DB):', leadData);
       }
 
       // Construct formatted WhatsApp message

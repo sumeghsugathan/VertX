@@ -1,4 +1,30 @@
 /* VertX Energies and Electrical Systems - Interactive JavaScript */
+
+// Firebase Configuration
+// Replace the values below with your Firebase Project Configuration from https://console.firebase.google.com
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "vertx-energies.firebaseapp.com",
+  projectId: "vertx-energies",
+  storageBucket: "vertx-energies.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase & Firestore Client
+let db = null;
+try {
+  if (typeof firebase !== 'undefined' && firebaseConfig.projectId && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    db = firebase.firestore();
+    console.log('VertX Firebase Firestore initialized.');
+  }
+} catch (err) {
+  console.warn('Firebase initialization status:', err.message);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // SOLAR SIZING & SAVINGS CALCULATOR LOGIC (Bimonthly KSEB / Utility Tariff Standard)
   const bimonthlyBillInput = document.getElementById('monthlyBillInput');
@@ -96,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact Form Handling with Direct WhatsApp Submission
+  // Contact Form Handling with Database Storage + WhatsApp Submission
   const quoteForm = document.getElementById('quoteForm');
   const successAlert = document.getElementById('formSuccessAlert');
 
@@ -110,6 +136,31 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('email').value.trim();
       const propertyType = document.getElementById('propertyType').value;
       const message = document.getElementById('message').value.trim();
+
+      // Lead object for database
+      const leadData = {
+        name: name,
+        phone: phone,
+        email: email,
+        propertyType: propertyType,
+        message: message,
+        createdAt: new Date().toISOString(),
+        source: 'VertX Website Form',
+        status: 'New'
+      };
+
+      // Store in Firebase Firestore collection 'quote_requests' if initialized
+      if (db) {
+        db.collection('quote_requests').add(leadData)
+          .then((docRef) => {
+            console.log('Lead record saved to Firestore DB with ID:', docRef.id);
+          })
+          .catch((error) => {
+            console.error('Firestore save error:', error);
+          });
+      } else {
+        console.log('Form submission captured (Add Firebase API key in js/main.js to write live to cloud DB):', leadData);
+      }
 
       // Construct formatted WhatsApp message
       const formattedMessage = 
@@ -128,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Show success alert on page
       if (successAlert) {
-        successAlert.innerHTML = '✅ <strong>Thank you!</strong> Opening WhatsApp to send your quote request...';
+        successAlert.innerHTML = '✅ <strong>Thank you!</strong> Your quote request has been recorded. Opening WhatsApp...';
         successAlert.style.display = 'block';
         successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }

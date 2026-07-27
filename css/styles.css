@@ -557,7 +557,7 @@ a {
   flex-shrink: 0;
 }
 
-/* GOVERNMENT SUBSIDY SECTION */
+/* GOVERNMENT SUBSIDY SECTION (INDIAN STYLE PHOTO CARD) */
 .subsidy-section {
   padding: 85px 0;
   background-color: var(--bg-main);
@@ -587,7 +587,7 @@ a {
 
 .subsidy-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 48px;
   align-items: center;
 }
@@ -647,22 +647,44 @@ a {
   justify-content: center;
 }
 
-.subsidy-stat-box {
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  color: var(--white);
+.subsidy-img-card {
+  position: relative;
   border-radius: var(--radius-md);
-  padding: 38px 32px;
-  text-align: center;
-  width: 100%;
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border: 3px solid var(--white);
+  width: 100%;
+}
+
+.subsidy-img-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.subsidy-img-card:hover img {
+  transform: scale(1.03);
+}
+
+.subsidy-stat-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .stat-badge-title {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #94A3B8;
@@ -670,24 +692,24 @@ a {
 }
 
 .stat-badge-val {
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   font-weight: 900;
   color: var(--amber);
   line-height: 1.1;
-  margin: 8px 0 4px;
+  margin: 4px 0 2px;
 }
 
 .stat-badge-sub {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   color: #CBD5E1;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .subsidy-cta-btn {
   width: 100%;
 }
 
-/* EMI / FINANCING SECTION */
+/* EMI / FINANCING SECTION (INDIAN STYLE FAMILY & LOAN PHOTO CARD) */
 .emi-section {
   padding: 75px 0;
   background-color: var(--white);
@@ -710,28 +732,9 @@ a {
 
 .emi-grid {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 32px;
-  align-items: flex-start;
-}
-
-.emi-badge-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-md);
-  background: var(--primary-light);
-  color: var(--primary);
-  border: 1px solid rgba(30, 95, 217, 0.2);
-  display: flex;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.emi-tag {
-  background-color: var(--primary-light);
-  color: var(--primary);
-  border-color: rgba(30, 95, 217, 0.25);
 }
 
 .emi-content h2 {
@@ -744,7 +747,6 @@ a {
   color: var(--dark-text);
   margin-bottom: 20px;
   line-height: 1.6;
-  max-width: 780px;
 }
 
 .emi-cta-btn {
@@ -758,6 +760,77 @@ a {
   color: var(--text-muted);
   font-style: italic;
   margin-top: 4px;
+}
+
+.emi-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.emi-img-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--white);
+  width: 100%;
+}
+
+.emi-img-card img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.emi-img-card:hover img {
+  transform: scale(1.03);
+}
+
+.emi-badge-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.emi-badge-overlay .emi-badge-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(30, 95, 217, 0.25);
+  color: var(--amber);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.emi-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.emi-badge-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white);
+}
+
+.emi-badge-sub {
+  font-size: 0.78rem;
+  color: #94A3B8;
 }
 
 /* SOLAR CALCULATOR SECTION */
@@ -1464,12 +1537,7 @@ textarea.form-control {
 
   .emi-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .emi-badge-icon {
-    width: 60px;
-    height: 60px;
+    gap: 28px;
   }
   
   .calculator-grid {
@@ -1507,8 +1575,16 @@ textarea.form-control {
     padding: 28px 20px;
   }
 
+  .subsidy-img-card img {
+    height: 240px;
+  }
+
   .stat-badge-val {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
+  }
+
+  .emi-img-card img {
+    height: 220px;
   }
 
   .faq-question {

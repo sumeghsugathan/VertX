@@ -125,6 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // FAQ ACCORDION INTERACTION LOGIC
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    if (questionBtn) {
+      questionBtn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+        // Close all other FAQ accordion items
+        faqItems.forEach(i => i.classList.remove('active'));
+        // Toggle current item
+        if (!isOpen) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+
   // Contact Form Handling - Save to Database + Instant Email Notification
   const quoteForm = document.getElementById('quoteForm');
   const successAlert = document.getElementById('formSuccessAlert');

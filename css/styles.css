@@ -233,44 +233,6 @@ a {
   flex-shrink: 0;
 }
 
-/* Header Contact Links (Phone & Email next to each other) */
-.header-contact-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.header-phone-link,
-.header-email-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--dark-text);
-  background: var(--bg-main);
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  white-space: nowrap;
-  transition: var(--transition);
-}
-
-.header-phone-link svg,
-.header-email-link svg {
-  color: var(--primary);
-  flex-shrink: 0;
-}
-
-.header-phone-link:hover,
-.header-email-link:hover {
-  background: var(--white);
-  color: var(--primary);
-  border-color: var(--amber);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
 /* Navbar Icon Buttons for Call and Email */
 .nav-icon-btn {
   width: 42px;
@@ -595,11 +557,140 @@ a {
   flex-shrink: 0;
 }
 
+/* GOVERNMENT SUBSIDY SECTION */
+.subsidy-section {
+  padding: 85px 0;
+  background-color: var(--bg-main);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.subsidy-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.subsidy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--amber) 0%, var(--primary) 100%);
+}
+
+.subsidy-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.subsidy-tag {
+  background-color: var(--amber-light);
+  color: #B4690E;
+  border-color: rgba(245, 166, 35, 0.4);
+}
+
+.subsidy-content h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  margin-bottom: 16px;
+}
+
+.subsidy-body {
+  font-size: 1.08rem;
+  color: var(--dark-text);
+  margin-bottom: 24px;
+  line-height: 1.65;
+}
+
+.subsidy-body strong {
+  color: var(--primary);
+}
+
+.subsidy-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.subsidy-feat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--dark-text);
+}
+
+.subsidy-feat-item svg {
+  color: var(--amber);
+  flex-shrink: 0;
+}
+
+.subsidy-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.subsidy-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.subsidy-stat-box {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 38px 32px;
+  text-align: center;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-badge-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  font-weight: 700;
+}
+
+.stat-badge-val {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--amber);
+  line-height: 1.1;
+  margin: 8px 0 4px;
+}
+
+.stat-badge-sub {
+  font-size: 0.92rem;
+  color: #CBD5E1;
+  margin-bottom: 24px;
+}
+
+.subsidy-cta-btn {
+  width: 100%;
+}
+
 /* SOLAR CALCULATOR SECTION */
 .calculator-section {
   padding: 100px 0;
-  background-color: var(--bg-main);
-  border-top: 1px solid var(--border-color);
+  background-color: var(--white);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -805,7 +896,7 @@ a {
 /* Why Choose Section */
 .why-section {
   padding: 100px 0;
-  background-color: var(--white);
+  background-color: var(--bg-main);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -856,7 +947,7 @@ a {
 /* How It Works Section */
 .process-section {
   padding: 100px 0;
-  background-color: var(--bg-main);
+  background-color: var(--white);
 }
 
 .process-grid {
@@ -920,6 +1011,86 @@ a {
 
 .process-card p {
   font-size: 0.92rem;
+}
+
+/* FAQ ACCORDION SECTION */
+.faq-section {
+  padding: 100px 0;
+  background-color: var(--bg-main);
+  border-top: 1px solid var(--border-color);
+}
+
+.faq-accordion {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item:hover {
+  border-color: var(--primary);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 22px 28px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  cursor: pointer;
+  gap: 16px;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  color: var(--primary);
+}
+
+.faq-icon {
+  color: var(--primary);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: var(--amber);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+  padding: 0 28px;
+  background-color: var(--white);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 28px 24px;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
 }
 
 /* Contact Section */
@@ -1025,7 +1196,32 @@ a {
 }
 
 .contact-form-card p {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+}
+
+/* MAKE IT AFFORDABLE NOTE BOX IN CONTACT FORM */
+.affordable-note-box {
+  background-color: var(--amber-light);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: #784205;
+  line-height: 1.5;
+}
+
+.affordable-note-box svg {
+  color: var(--amber);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.affordable-note-box strong {
+  color: #B4690E;
 }
 
 .form-grid {
@@ -1187,6 +1383,11 @@ textarea.form-control {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .subsidy-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
   
   .calculator-grid {
     grid-template-columns: 1fr;
@@ -1213,6 +1414,27 @@ textarea.form-control {
 @media (max-width: 640px) {
   .container {
     padding: 0 16px;
+  }
+
+  .subsidy-card {
+    padding: 28px 20px;
+  }
+
+  .stat-badge-val {
+    font-size: 2.6rem;
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 20px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 20px 20px;
   }
 
   .nav-container {

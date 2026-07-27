@@ -53,33 +53,60 @@ document.addEventListener('DOMContentLoaded', () => {
       billDisplay.textContent = `₹ ${bimonthlyBill.toLocaleString('en-IN')} / 2 mos`;
     }
 
-    // Tariff rates per unit: ₹7.2/unit for residential (bimonthly slab avg), ₹9.0/unit for commercial
+    // Tariff rates per unit: ₹7.2/unit for residential, ₹9.0/unit for commercial
     const tariffRate = currentType === 'residential' ? 7.2 : 9.0;
-
-    // 1 kW generates approx 240 units (kWh) per 2-month billing cycle (120 units/month)
     const unitsPerKwBimonthly = 240;
 
-    // Calculate required units per 2-month cycle
+    // 1. Recommended System Capacity in kW (minimum 1 kW)
     const bimonthlyUnitsRequired = bimonthlyBill / tariffRate;
-
-    // Recommended System Capacity in kW (minimum 1 kW)
     let kw = Math.round(bimonthlyUnitsRequired / unitsPerKwBimonthly);
     if (kw < 1) kw = 1;
 
-    // Bimonthly Generation & Roof Area
+    // 2. Generation & Roof Specs
     const generationUnitsBimonthly = kw * unitsPerKwBimonthly;
     const estimatedRoofArea = kw * 90; // ~90 sq.ft per kW
 
-    // Annual Savings (6 bimonthly billing cycles per year, ~90% savings)
-    const yearlySavings = Math.round(bimonthlyBill * 6 * 0.90);
+    // 3. PM Surya Ghar Subsidy Grant (Residential Only: ₹30k for 1kW, ₹60k for 2kW, ₹78k flat cap for 3kW+)
+    let subsidyVal = 0;
+    if (currentType === 'residential') {
+      if (kw === 1) {
+        subsidyVal = 30000;
+      } else if (kw === 2) {
+        subsidyVal = 60000;
+      } else {
+        subsidyVal = 78000; // Flat cap for 3 kW and above
+      }
+    }
 
-    // Update DOM outputs
+    // 4. Monthly & 25-Year Lifetime Bill Savings (~90% bill reduction)
+    const monthlyBillAmount = bimonthlyBill / 2;
+    const monthlySavingsVal = Math.round(monthlyBillAmount * 0.90);
+    const annualSavingsVal = monthlySavingsVal * 12;
+    const totalSavings25YrVal = annualSavingsVal * 25;
+
+    // Update DOM Outputs
     if (recommendedKw) recommendedKw.textContent = kw;
     if (recommendedSub) recommendedSub.textContent = `Ideal for your ₹${bimonthlyBill.toLocaleString('en-IN')} (2-month) power bill`;
-    if (monthlyUnits) monthlyUnits.textContent = `${generationUnitsBimonthly.toLocaleString('en-IN')} Units / 2 mos`;
-    if (roofArea) roofArea.textContent = `${estimatedRoofArea.toLocaleString('en-IN')} sq. ft.`;
-    if (annualSavings) annualSavings.textContent = `₹ ${yearlySavings.toLocaleString('en-IN')} / yr`;
     if (btnKwText) btnKwText.textContent = `${kw} kW ${currentType === 'residential' ? 'Home' : 'Commercial'} System`;
+
+    const monthlyUnitsEl = document.getElementById('monthlyUnits');
+    const roofAreaEl = document.getElementById('roofArea');
+    const monthlySavingsEl = document.getElementById('monthlySavings');
+    const totalSavings25YrEl = document.getElementById('totalSavings25Yr');
+    const subsidyRowEl = document.getElementById('subsidyRow');
+    const subsidyValEl = document.getElementById('subsidyVal');
+
+    if (monthlyUnitsEl) monthlyUnitsEl.textContent = `${generationUnitsBimonthly.toLocaleString('en-IN')} Units / 2 mos`;
+    if (roofAreaEl) roofAreaEl.textContent = `${estimatedRoofArea.toLocaleString('en-IN')} sq. ft.`;
+    if (monthlySavingsEl) monthlySavingsEl.textContent = `₹ ${monthlySavingsVal.toLocaleString('en-IN')} / mo`;
+    if (totalSavings25YrEl) totalSavings25YrEl.textContent = `₹ ${totalSavings25YrVal.toLocaleString('en-IN')}`;
+
+    if (currentType === 'residential') {
+      if (subsidyRowEl) subsidyRowEl.style.display = 'flex';
+      if (subsidyValEl) subsidyValEl.textContent = `Up to ₹ ${subsidyVal.toLocaleString('en-IN')} Direct Grant`;
+    } else {
+      if (subsidyRowEl) subsidyRowEl.style.display = 'none';
+    }
   }
 
   // Event listener for bimonthly bill slider
@@ -242,4 +269,85 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // SYSTEM TYPE TOGGLE CONTROLLER (HYBRID VS ON-GRID)
+  const toggleHybridBtn = document.getElementById('toggleHybridBtn');
+  const toggleOngridBtn = document.getElementById('toggleOngridBtn');
+  const hybridSystemView = document.getElementById('hybridSystemView');
+  const ongridSystemView = document.getElementById('ongridSystemView');
+
+  if (toggleHybridBtn && toggleOngridBtn) {
+    toggleHybridBtn.addEventListener('click', () => {
+      toggleHybridBtn.classList.add('active');
+      toggleOngridBtn.classList.remove('active');
+      if (hybridSystemView) hybridSystemView.style.display = 'block';
+      if (ongridSystemView) ongridSystemView.style.display = 'none';
+    });
+
+    toggleOngridBtn.addEventListener('click', () => {
+      toggleOngridBtn.classList.add('active');
+      toggleHybridBtn.classList.remove('active');
+      if (hybridSystemView) hybridSystemView.style.display = 'none';
+      if (ongridSystemView) ongridSystemView.style.display = 'block';
+    });
+  }
+
+  // SIMPLE AUTOMATIC LOOPING HYBRID ANIMATION BANNER (NON-CLICKABLE)
+  const autoIcon = document.getElementById('autoIcon');
+  const autoTag = document.getElementById('autoTag');
+  const autoTitle = document.getElementById('autoTitle');
+  const autoSub = document.getElementById('autoSub');
+
+  const dot1 = document.getElementById('dot1');
+  const dot2 = document.getElementById('dot2');
+  const dot3 = document.getElementById('dot3');
+
+  const hybridPhases = [
+    {
+      icon: "☀️",
+      tag: "DAYTIME PHASE",
+      title: "Solar Powering Home & Charging Li-Ion Battery",
+      sub: "Free sunlight runs household loads while storing excess energy into your Li-Ion battery storage."
+    },
+    {
+      icon: "🌙",
+      tag: "NIGHTTIME PHASE",
+      title: "Stored Li-Ion Battery Energy Powering Your Home",
+      sub: "During night hours, your home draws zero-cost electricity directly from the stored Li-Ion battery."
+    },
+    {
+      icon: "⚡",
+      tag: "GRID POWER OUTAGE BACKUP",
+      title: "Li-Ion Battery Supplies 100% Instant Backup",
+      sub: "When KSEB grid load shedding occurs, your Li-Ion battery takes over in under 10ms with zero blackouts."
+    }
+  ];
+
+  let currentPhaseIndex = 0;
+
+  function updateAutoHybridBanner() {
+    const phase = hybridPhases[currentPhaseIndex];
+    if (autoIcon) autoIcon.textContent = phase.icon;
+    if (autoTag) autoTag.textContent = phase.tag;
+    if (autoTitle) autoTitle.textContent = phase.title;
+    if (autoSub) autoSub.textContent = phase.sub;
+
+    [dot1, dot2, dot3].forEach((dot, idx) => {
+      if (dot) {
+        if (idx === currentPhaseIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      }
+    });
+
+    currentPhaseIndex = (currentPhaseIndex + 1) % hybridPhases.length;
+  }
+
+  // Run automatically every 3.5 seconds
+  if (autoIcon) {
+    updateAutoHybridBanner();
+    setInterval(updateAutoHybridBanner, 3500);
+  }
 });

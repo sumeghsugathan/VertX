@@ -833,11 +833,386 @@ a {
   color: #94A3B8;
 }
 
+/* VERTX HYBRID SHOWCASE SECTION STYLES (CLEAN & USER-FRIENDLY) */
+.hybrid-showcase-section {
+  padding: 85px 0 95px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-tag-hybrid {
+  background-color: #E0F2FE;
+  color: #0369A1;
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+/* System Type Selector Toggle (Hybrid vs On-Grid) */
+.system-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.system-toggle-pill {
+  display: inline-flex;
+  background: #F1F5F9;
+  border: 1px solid var(--border-color);
+  padding: 6px;
+  border-radius: 9999px;
+  gap: 6px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.system-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.system-toggle-btn:hover {
+  color: var(--primary);
+}
+
+.system-toggle-btn.active {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(30, 95, 217, 0.3);
+}
+
+/* On-Grid Summary Banner Card */
+.ongrid-info-banner {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 32px 40px;
+  color: var(--white);
+}
+
+.ongrid-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #BAE6FD;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ongrid-banner-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.ongrid-banner-card p {
+  font-size: 0.98rem;
+  color: #F0F9FF;
+  line-height: 1.6;
+}
+
+/* 3 Power Source Cards Grid */
+.hybrid-sources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.hybrid-source-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.hybrid-source-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-hybrid-card {
+  border: 2px solid var(--primary);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F6FE 100%);
+  box-shadow: var(--shadow-md);
+}
+
+.source-step-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.source-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.sun-bg {
+  background: var(--amber-light);
+  color: var(--amber);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.battery-bg {
+  background: #ECFDF5;
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.grid-bg {
+  background: #F0F9FF;
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.hybrid-source-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.hybrid-source-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.source-status-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  transition: var(--transition);
+}
+
+.active-status {
+  background: #ECFDF5;
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.standby-status {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #CBD5E1;
+}
+
+/* Simple Automatic Looping Hybrid Banner (Non-Clickable) */
+.hybrid-auto-banner {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 32px 40px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auto-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.auto-badge-icon {
+  font-size: 2.6rem;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.auto-badge-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.auto-badge-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+  transition: color 0.4s ease;
+}
+
+.auto-badge-sub {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+.auto-progress-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.dot-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.dot-indicator.active {
+  width: 28px;
+  border-radius: 9999px;
+  background: var(--amber);
+  box-shadow: 0 0 10px rgba(245, 166, 35, 0.6);
+}
+
 /* SOLAR CALCULATOR SECTION */
 .calculator-section {
-  padding: 100px 0;
+  padding: 85px 0 100px;
   background-color: var(--white);
   border-bottom: 1px solid var(--border-color);
+}
+
+/* ANIMATED SVG SUN & SOLAR PANEL DIVIDER / ILLUSTRATION */
+.solar-flow-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0 32px;
+}
+
+.solar-flow-svg {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* 1. Rotating Sun Rays (~12s loop) */
+.sun-rays {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rotateSunRays 12s linear infinite;
+}
+
+@keyframes rotateSunRays {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulsing Central Sun Core */
+.sun-core {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulseSunCore 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSunCore {
+  0% {
+    transform: scale(1);
+    fill: #F5A623;
+  }
+  100% {
+    transform: scale(1.08);
+    fill: #FFAA00;
+  }
+}
+
+.sun-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulseHalo 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseHalo {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.75;
+    transform: scale(1.1);
+  }
+}
+
+/* 2. Dashed Energy Beams Flowing Downward */
+.beam-line {
+  stroke-dasharray: 8, 6;
+  animation: flowEnergyBeam 1.5s linear infinite;
+}
+
+.beam-1 { animation-delay: 0s; }
+.beam-2 { animation-delay: 0.25s; }
+.beam-3 { animation-delay: 0.5s; }
+
+@keyframes flowEnergyBeam {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 3. Solar Panel 4 Grid Cells Staggered Energy Absorption Glow */
+.panel-cell {
+  transition: fill 0.35s ease;
+  animation: absorbSolarEnergy 2.4s ease-in-out infinite;
+}
+
+.cell-1 { animation-delay: 0s; }
+.cell-2 { animation-delay: 0.6s; }
+.cell-3 { animation-delay: 1.2s; }
+.cell-4 { animation-delay: 1.8s; }
+
+@keyframes absorbSolarEnergy {
+  0%, 100% {
+    fill: #1E5FD9;
+  }
+  30%, 65% {
+    fill: #F5A623;
+  }
 }
 
 .calculator-card {
@@ -850,7 +1225,7 @@ a {
 
 .calculator-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1.25fr;
 }
 
 .calc-inputs {
@@ -945,11 +1320,11 @@ a {
   box-shadow: var(--shadow-sm);
 }
 
-/* Calculator Outputs Container (High Contrast Dark Slate Card) */
+/* Calculator Outputs Container (High Contrast Dark Slate Dashboard) */
 .calc-outputs {
   background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   color: var(--white);
-  padding: 44px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -960,13 +1335,13 @@ a {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .calc-result-label {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #94A3B8;
@@ -974,35 +1349,94 @@ a {
 }
 
 .calc-result-value {
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   font-weight: 900;
   color: var(--amber);
   line-height: 1;
-  margin: 10px 0 6px;
+  margin: 6px 0 4px;
 }
 
 .calc-result-value small {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--white);
 }
 
 .calc-result-sub {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: #CBD5E1;
+}
+
+/* VISUALLY EMPHASIZED ROI HIGHLIGHT CARDS (PAYBACK & 25-YR SAVINGS) */
+.calc-roi-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.roi-hero-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.roi-hero-card.highlight-gold {
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.18) 0%, rgba(217, 142, 22, 0.28) 100%);
+  border: 1.5px solid rgba(245, 166, 35, 0.5);
+  box-shadow: 0 4px 16px rgba(245, 166, 35, 0.15);
+}
+
+.roi-hero-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94A3B8;
+  margin-bottom: 4px;
+}
+
+.roi-hero-card.highlight-gold .roi-hero-label {
+  color: #FCD34D;
+}
+
+.roi-hero-val {
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.roi-hero-card.highlight-gold .roi-hero-val {
+  color: var(--amber);
+  text-shadow: 0 2px 10px rgba(245, 166, 35, 0.3);
+}
+
+.roi-hero-sub {
+  font-size: 0.75rem;
+  color: #CBD5E1;
+  margin-top: 2px;
 }
 
 .calc-metrics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
 .calc-metric-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 16px;
+  padding: 14px;
   border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
@@ -1016,27 +1450,40 @@ a {
 }
 
 .metric-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #94A3B8;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .metric-val {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--white);
 }
 
 .metric-val.highlight {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #F5A623;
+}
+
+.green-text {
+  color: #10B981 !important;
 }
 
 .calc-submit-btn {
   width: 100%;
   padding: 16px;
   font-size: 1.05rem;
+}
+
+.calc-disclaimer {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  font-style: italic;
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.4;
 }
 
 /* Why Choose Section */
@@ -1674,6 +2121,10 @@ textarea.form-control {
 
   .calc-result-value {
     font-size: 2.75rem;
+  }
+
+  .calc-roi-hero-grid {
+    grid-template-columns: 1fr;
   }
 
   .service-content {

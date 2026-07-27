@@ -194,6 +194,122 @@
         </div>
       </div>
     </div>
+  <!-- SECTION 3.5: SOLAR SYSTEM TYPES & SHOWCASE (Placed right after Services) -->
+  <section class="hybrid-showcase-section" id="hybrid">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag section-tag-hybrid">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Solar System Solutions
+        </span>
+        <h2>Choose Your Preferred Solar System</h2>
+        <p>Compare Hybrid Systems (with Battery Backup) &amp; On-Grid Systems (with KSEB Net-Metering)</p>
+      </div>
+
+      <!-- System Type Selector Toggle -->
+      <div class="system-toggle-wrapper">
+        <div class="system-toggle-pill">
+          <button type="button" class="system-toggle-btn active" id="toggleHybridBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Hybrid System (Solar + Li-Ion Battery + Grid)</span>
+          </button>
+          <button type="button" class="system-toggle-btn" id="toggleOngridBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <span>On-Grid System (Solar + KSEB Net-Metering)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- HYBRID SYSTEM VIEW CONTAINER -->
+      <div id="hybridSystemView">
+        <div class="hybrid-sources-grid">
+          <!-- Source 1: Solar -->
+          <div class="hybrid-source-card">
+            <div class="source-icon-badge sun-bg">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3>1. Rooftop Solar Panels</h3>
+            <p>Generates free electricity under sunlight to power your home directly and charge your battery storage.</p>
+          </div>
+
+          <!-- Source 2: Battery -->
+          <div class="hybrid-source-card highlight-hybrid-card">
+            <div class="source-icon-badge battery-bg">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/></svg>
+            </div>
+            <h3>2. Li-Ion Battery Storage</h3>
+            <p>Stores daytime solar power to run your lights, fans, TV, and appliances during night and blackouts.</p>
+          </div>
+
+          <!-- Source 3: KSEB Grid -->
+          <div class="hybrid-source-card">
+            <div class="source-icon-badge grid-bg">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>3. KSEB Utility Grid</h3>
+            <p>Remains connected as a seamless safety backup whenever additional grid electricity is needed.</p>
+          </div>
+        </div>
+
+        <!-- Simple Automatic Looping Animation Card -->
+        <div class="hybrid-auto-banner">
+          <div class="auto-banner-content">
+            <div class="auto-badge-icon" id="autoIcon">☀️</div>
+            <div class="auto-badge-text">
+              <span class="auto-badge-tag" id="autoTag">DAYTIME PHASE</span>
+              <h3 class="auto-badge-title" id="autoTitle">Solar Powering Home &amp; Charging Li-Ion Battery</h3>
+              <p class="auto-badge-sub" id="autoSub">Free sunlight runs household loads while storing excess energy into your Li-Ion battery.</p>
+            </div>
+          </div>
+
+          <div class="auto-progress-dots">
+            <span class="dot-indicator active" id="dot1"></span>
+            <span class="dot-indicator" id="dot2"></span>
+            <span class="dot-indicator" id="dot3"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ON-GRID SYSTEM VIEW CONTAINER (Hidden by default) -->
+      <div id="ongridSystemView" style="display: none;">
+        <div class="hybrid-sources-grid">
+          <!-- OnGrid Component 1: Solar Panels -->
+          <div class="hybrid-source-card">
+            <div class="source-icon-badge sun-bg">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3>1. Rooftop Solar Panels</h3>
+            <p>Generates daytime clean power directly for your household appliances, drastically cutting your daytime bill.</p>
+          </div>
+
+          <!-- OnGrid Component 2: KSEB Net-Meter -->
+          <div class="hybrid-source-card highlight-hybrid-card">
+            <div class="source-icon-badge grid-bg">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+            </div>
+            <h3>2. KSEB Net-Metering Meter</h3>
+            <p>Bi-directional meter exports unused daytime solar units back to the KSEB grid to accumulate bill credits.</p>
+          </div>
+
+          <!-- OnGrid Component 3: KSEB Utility Grid -->
+          <div class="hybrid-source-card">
+            <div class="source-icon-badge battery-bg">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>3. KSEB Utility Grid Power</h3>
+            <p>Supplies power at night. Requires zero battery storage investment, but pauses generation during grid outages.</p>
+          </div>
+        </div>
+
+        <div class="ongrid-info-banner">
+          <div class="ongrid-banner-card">
+            <span class="ongrid-tag">ON-GRID SYSTEM SUMMARY</span>
+            <h3>Maximum Subsidy &bull; Lowest Initial Investment</h3>
+            <p>On-Grid systems are 100% eligible for PM Surya Ghar government subsidies up to ₹78,000. It is the most economical solution for homes with consistent grid power looking for maximum Return on Investment (ROI).</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SECTION 4: GOVERNMENT SUBSIDY SECTION (Placed right after Services) -->
@@ -251,7 +367,7 @@
           <div class="emi-content">
             <div class="section-tag emi-tag">Flexible Financing</div>
             <h2>Finance it through PM Surya Ghar Yojana</h2>
-            <p>Beyond the ₹78,000 subsidy, you can apply for a collateral-free solar loan through the government's Jan Samarth portal — with public-sector banks offering rates around 7-7.5% and tenures up to 10 years. The subsidy is credited directly into your loan account, lowering what you owe. We guide you through the entire application.</p>
+            <p>Beyond the ₹78,000 subsidy, you can apply for a collateral-free solar loan up to ₹2 Lakh through the government's Jan Samarth portal — with public-sector banks offering preferential rates starting from 5.75% to 6% and tenures up to 10 years. Any remaining system cost above ₹2 Lakh is covered as a simple downpayment, keeping your monthly debt light and manageable. We guide you through the entire application.</p>
             <a href="#contact" class="btn btn-secondary emi-cta-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               Talk to us about financing options
@@ -275,8 +391,6 @@
         </div>
       </div>
     </div>
-  </section>
-
   <!-- SECTION 6: SOLAR SYSTEM SIZING & SAVINGS CALCULATOR (Bimonthly Billing) -->
   <section class="calculator-section" id="calculator">
     <div class="container">
@@ -287,6 +401,61 @@
         </span>
         <h2>Calculate Your Ideal Solar System kW</h2>
         <p>Based on your 2-month electricity bill, find out the exact solar kW capacity required for your property, generation units, required roof space, and annual savings.</p>
+        
+        <!-- Animated Sun & Solar Panel Energy Flow Illustration -->
+        <div class="solar-flow-divider">
+          <svg viewBox="0 0 400 230" width="100%" height="210" xmlns="http://www.w3.org/2000/svg" class="solar-flow-svg" aria-label="Animated SVG sun and solar panel energy absorption illustration">
+            <defs>
+              <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#F5A623" stop-opacity="0.75"/>
+                <stop offset="100%" stop-color="#F5A623" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#F5A623" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#1E5FD9" stop-opacity="0.35"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Animated Sun -->
+            <g class="svg-sun-group" transform="translate(200, 46)">
+              <circle cx="0" cy="0" r="38" fill="url(#sunGlow)" class="sun-halo" />
+              <g class="sun-rays">
+                <line x1="0" y1="-25" x2="0" y2="-35" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="17.68" y1="-17.68" x2="24.75" y2="-24.75" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="25" y1="0" x2="35" y2="0" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="17.68" y1="17.68" x2="24.75" y2="24.75" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="0" y1="25" x2="0" y2="35" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="-17.68" y1="17.68" x2="-24.75" y2="24.75" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="-25" y1="0" x2="-35" y2="0" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+                <line x1="-17.68" y1="-17.68" x2="-24.75" y2="-24.75" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+              </g>
+              <circle cx="0" cy="0" r="17" fill="#F5A623" class="sun-core" />
+            </g>
+
+            <!-- Dashed Energy Beams Flowing Downward -->
+            <g class="energy-beams">
+              <line x1="175" y1="68" x2="140" y2="150" stroke="url(#beamGrad)" stroke-width="2.5" class="beam-line beam-1"/>
+              <line x1="200" y1="68" x2="200" y2="150" stroke="url(#beamGrad)" stroke-width="3" class="beam-line beam-2"/>
+              <line x1="225" y1="68" x2="260" y2="150" stroke="url(#beamGrad)" stroke-width="2.5" class="beam-line beam-3"/>
+            </g>
+
+            <!-- Tilted Solar Panel in Brand Blue with 4 Grid Cells -->
+            <g class="solar-panel-group" transform="translate(100, 148)">
+              <polygon points="10,48 190,48 200,6 0,6" fill="#0C447C" stroke="#1E5FD9" stroke-width="3" class="panel-frame"/>
+              
+              <!-- Panel Mount Stands -->
+              <line x1="25" y1="48" x2="15" y2="62" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="175" y1="48" x2="185" y2="62" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="100" y1="48" x2="100" y2="64" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/>
+              
+              <!-- 4 Grid Cells Lighting Up Amber in Staggered Sequence -->
+              <polygon points="12,25 96,25 94,10 10,10" fill="#1E5FD9" stroke="#0F388A" stroke-width="1.5" class="panel-cell cell-1"/>
+              <polygon points="104,25 188,25 190,10 104,10" fill="#1E5FD9" stroke="#0F388A" stroke-width="1.5" class="panel-cell cell-2"/>
+              <polygon points="14,44 96,44 96,29 14,29" fill="#1E5FD9" stroke="#0F388A" stroke-width="1.5" class="panel-cell cell-3"/>
+              <polygon points="104,44 186,44 186,29 104,29" fill="#1E5FD9" stroke="#0F388A" stroke-width="1.5" class="panel-cell cell-4"/>
+            </g>
+          </svg>
+        </div>
       </div>
 
       <div class="calculator-card">
@@ -326,29 +495,49 @@
           <!-- Calculated Output Card (High-Contrast Dark Slate Dashboard) -->
           <div class="calc-outputs">
             <div class="calc-hero-result">
-              <span class="calc-result-label">Recommended Solar Capacity</span>
+              <span class="calc-result-label">Recommended Solar System</span>
               <div class="calc-result-value"><span id="recommendedKw">3</span> <small>kW</small></div>
               <p class="calc-result-sub" id="recommendedSub">Ideal for your ₹5,000 (2-month) power bill</p>
             </div>
 
+            <!-- Value Highlights: Est. Monthly Savings & 25-Year Lifetime Savings -->
+            <div class="calc-roi-hero-grid">
+              <div class="roi-hero-card highlight-gold">
+                <span class="roi-hero-label">⭐ Est. Monthly Savings</span>
+                <span class="roi-hero-val" id="monthlySavings">₹ 2,250 / mo</span>
+                <span class="roi-hero-sub">~90% Power Bill Reduction</span>
+              </div>
+              <div class="roi-hero-card">
+                <span class="roi-hero-label">⭐ 25-Yr Lifetime Savings</span>
+                <span class="roi-hero-val" id="totalSavings25Yr">₹ 6,75,000</span>
+                <span class="roi-hero-sub">Total Clean Energy Value</span>
+              </div>
+            </div>
+
+            <!-- Technical & Generation Specs Grid -->
             <div class="calc-metrics-grid">
               <div class="calc-metric-card">
                 <span class="metric-label">Bimonthly Generation</span>
                 <span class="metric-val" id="monthlyUnits">720 Units / 2 mos</span>
               </div>
+
               <div class="calc-metric-card">
-                <span class="metric-label">Est. Roof Area</span>
+                <span class="metric-label">Required Roof Area</span>
                 <span class="metric-val" id="roofArea">270 sq. ft.</span>
               </div>
-              <div class="calc-metric-card full-width">
-                <span class="metric-label">Estimated Annual Savings</span>
-                <span class="metric-val highlight" id="annualSavings">₹ 27,000 / yr</span>
+
+              <div class="calc-metric-card full-width" id="subsidyRow">
+                <span class="metric-label">PM Surya Ghar Govt Subsidy</span>
+                <span class="metric-val green-text" id="subsidyVal">Up to ₹ 78,000 Direct Grant</span>
               </div>
             </div>
 
             <button type="button" id="calcQuoteBtn" class="btn btn-primary calc-submit-btn">
-              Get Free Quote for <span id="btnKwText">3 kW Home System</span>
+              Get Free Custom Quote for <span id="btnKwText">3 kW Home System</span>
             </button>
+
+            <!-- Disclaimer -->
+            <p class="calc-disclaimer">* Custom system design, component selection, and final pricing confirmed during free site survey.</p>
           </div>
         </div>
       </div>

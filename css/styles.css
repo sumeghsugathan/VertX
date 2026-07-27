@@ -712,7 +712,7 @@ a {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 32px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .emi-badge-icon {
@@ -742,14 +742,22 @@ a {
 .emi-content p {
   font-size: 1.05rem;
   color: var(--dark-text);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   line-height: 1.6;
-  max-width: 760px;
+  max-width: 780px;
 }
 
 .emi-cta-btn {
   font-size: 0.95rem;
   padding: 10px 22px;
+  margin-bottom: 12px;
+}
+
+.emi-disclaimer {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
 }
 
 /* SOLAR CALCULATOR SECTION */

@@ -1,23 +1,27 @@
-/* VertX Energies and Electrical Systems - Design System */
+/* VertX Energies and Electrical Systems - Light Theme Design System */
 :root {
-  --primary: #1E5FD9;
+  --primary: #1E5FD9;              /* Logo bolt vibrant blue */
   --primary-hover: #154BB2;
   --primary-light: #EBF2FE;
-  --secondary: #64748B;
-  --dark: #0F172A;
-  --dark-surface: #1E293B;
-  --light-gray: #F8FAFC;
-  --silver-gray: #71717A;
-  --border-color: #E2E8F0;
-  --text-main: #1E293B;
+  --secondary: #8A94A6;            /* Logo V silver/gray */
+  --secondary-dark: #475569;
+  --amber: #F5A623;                /* Warm sun highlight accent */
+  --amber-hover: #D98E16;
+  --amber-light: #FFF8EB;
+  --amber-glow: rgba(245, 166, 35, 0.35);
+  --bg-main: #FAFBFC;              /* Light background */
+  --card-bg: #FFFFFF;
+  --dark-text: #1E293B;            /* Near-black text for high contrast (WCAG AA) */
   --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --border-subtle: #F1F5F9;
   --white: #FFFFFF;
   --radius-sm: 8px;
   --radius-md: 16px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 10px 25px -5px rgba(30, 95, 217, 0.1);
-  --shadow-lg: 0 20px 35px -10px rgba(30, 95, 217, 0.15);
+  --radius-lg: 24px;
+  --shadow-sm: 0 2px 8px rgba(30, 95, 217, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(30, 95, 217, 0.08);
+  --shadow-lg: 0 16px 40px -8px rgba(15, 23, 42, 0.10);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -35,8 +39,8 @@ html {
 
 body {
   font-family: var(--font-main);
-  color: var(--text-main);
-  background-color: var(--white);
+  color: var(--dark-text);
+  background-color: var(--bg-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -50,13 +54,13 @@ body {
 
 /* Typography */
 h1, h2, h3, h4 {
-  color: var(--dark);
-  font-weight: 700;
+  color: var(--dark-text);
+  font-weight: 800;
   line-height: 1.25;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
   letter-spacing: -0.02em;
 }
 
@@ -87,24 +91,25 @@ a {
   gap: 8px;
   padding: 14px 28px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-md);
   transition: var(--transition);
   cursor: pointer;
-  border: none;
+  border: 1.5px solid transparent;
   white-space: nowrap;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
-  box-shadow: 0 4px 14px rgba(30, 95, 217, 0.35);
+  box-shadow: 0 4px 14px rgba(30, 95, 217, 0.28);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
+  border-color: var(--amber);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(30, 95, 217, 0.45);
+  box-shadow: 0 6px 20px var(--amber-glow);
 }
 
 .btn-secondary {
@@ -115,6 +120,8 @@ a {
 
 .btn-secondary:hover {
   background-color: #DCE7FD;
+  border-color: var(--amber);
+  color: var(--primary-hover);
   transform: translateY(-2px);
 }
 
@@ -231,7 +238,7 @@ a {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: var(--light-gray);
+  background: var(--bg-main);
   border: 1px solid var(--border-color);
   color: var(--primary);
   display: flex;
@@ -243,29 +250,30 @@ a {
 .nav-icon-btn:hover {
   background: var(--primary);
   color: var(--white);
-  border-color: var(--primary);
+  border-color: var(--amber);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 95, 217, 0.25);
+  box-shadow: 0 4px 12px var(--amber-glow);
 }
 
-/* Hero Section */
+/* Light Theme Hero Section */
 .hero {
   position: relative;
-  padding: 100px 0 120px;
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  color: var(--white);
+  padding: 90px 0 110px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 50%, #F1F5F9 100%);
+  color: var(--dark-text);
   overflow: hidden;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(30, 95, 217, 0.25) 0%, transparent 60%);
+  top: -100px;
+  right: -50px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.12) 0%, rgba(30, 95, 217, 0.08) 50%, transparent 70%);
   pointer-events: none;
+  filter: blur(40px);
 }
 
 .hero-bg-overlay {
@@ -274,30 +282,38 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.15;
+  opacity: 0.4;
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(30, 95, 217, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 95, 217, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
   pointer-events: none;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 52px;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
 .hero-content h1 {
-  color: var(--white);
+  color: var(--dark-text);
   margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight-blue {
+  color: var(--primary);
+  background: linear-gradient(135deg, #1E5FD9 0%, #0F388A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-  color: #94A3B8;
+  color: var(--text-muted);
   font-size: 1.2rem;
   margin-bottom: 36px;
   max-width: 540px;
@@ -317,31 +333,36 @@ a {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: var(--dark-surface);
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--white);
+  background: var(--white);
 }
 
 .hero-image-card img {
   width: 100%;
-  height: 380px;
+  height: 420px;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.hero-image-card:hover img {
+  transform: scale(1.02);
 }
 
 .hero-badge {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  background: rgba(15, 23, 42, 0.88);
+  background: rgba(15, 23, 42, 0.90);
   backdrop-filter: blur(12px);
   padding: 14px 20px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   gap: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .hero-badge-icon {
@@ -382,20 +403,34 @@ a {
 .section-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 60px;
+  margin: 0 auto 56px;
 }
 
 .section-tag {
-  display: inline-block;
-  padding: 6px 14px;
-  background-color: var(--primary-light);
-  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background-color: var(--amber-light);
+  color: #B4690E;
+  border: 1px solid rgba(245, 166, 35, 0.3);
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-radius: 9999px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.section-tag.section-tag-hero {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-color: rgba(30, 95, 217, 0.25);
+}
+
+.sun-icon-svg {
+  color: var(--amber);
+  flex-shrink: 0;
 }
 
 .section-header h2 {
@@ -411,18 +446,19 @@ a {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 36px;
 }
 
 .service-card {
   background: var(--white);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  overflow: hidden;
   transition: var(--transition);
   position: relative;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow-sm);
 }
 
 .service-card:hover {
@@ -431,22 +467,65 @@ a {
   box-shadow: var(--shadow-lg);
 }
 
+.service-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.service-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.service-img-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.service-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .service-icon {
-  width: 64px;
-  height: 64px;
-  background-color: var(--primary-light);
-  color: var(--primary);
+  width: 56px;
+  height: 56px;
+  background-color: var(--amber-light);
+  color: var(--amber);
+  border: 1px solid rgba(245, 166, 35, 0.3);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   transition: var(--transition);
 }
 
 .service-card:hover .service-icon {
   background-color: var(--primary);
   color: var(--white);
+  border-color: var(--primary);
 }
 
 .service-card h3 {
@@ -469,19 +548,19 @@ a {
   align-items: center;
   gap: 10px;
   font-size: 0.95rem;
-  color: var(--text-main);
-  margin-bottom: 8px;
+  color: var(--dark-text);
+  margin-bottom: 10px;
 }
 
 .service-list li svg {
-  color: var(--primary);
+  color: var(--amber);
   flex-shrink: 0;
 }
 
 /* SOLAR CALCULATOR SECTION */
 .calculator-section {
   padding: 100px 0;
-  background-color: var(--light-gray);
+  background-color: var(--bg-main);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -505,6 +584,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  background: var(--white);
 }
 
 .calc-inputs h3 {
@@ -527,7 +607,7 @@ a {
 .calc-label-row label {
   font-weight: 700;
   font-size: 1rem;
-  color: var(--dark);
+  color: var(--dark-text);
 }
 
 .calc-val-display {
@@ -562,7 +642,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  background: var(--light-gray);
+  background: var(--bg-main);
   padding: 6px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
@@ -578,7 +658,6 @@ a {
   color: var(--text-muted);
   cursor: pointer;
   transition: var(--transition);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -591,7 +670,7 @@ a {
   box-shadow: var(--shadow-sm);
 }
 
-/* Calculator Outputs */
+/* Calculator Outputs Container (High Contrast Dark Slate Card) */
 .calc-outputs {
   background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   color: var(--white);
@@ -622,7 +701,7 @@ a {
 .calc-result-value {
   font-size: 3.5rem;
   font-weight: 900;
-  color: #60A5FA;
+  color: var(--amber);
   line-height: 1;
   margin: 10px 0 6px;
 }
@@ -657,8 +736,8 @@ a {
 
 .calc-metric-card.full-width {
   grid-column: span 2;
-  background: rgba(30, 95, 217, 0.2);
-  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(245, 166, 35, 0.12);
+  border-color: rgba(245, 166, 35, 0.35);
 }
 
 .metric-label {
@@ -676,7 +755,7 @@ a {
 
 .metric-val.highlight {
   font-size: 1.4rem;
-  color: #34D399;
+  color: #F5A623;
 }
 
 .calc-submit-btn {
@@ -704,11 +783,12 @@ a {
   border-radius: var(--radius-md);
   padding: 32px 24px;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .why-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(30, 95, 217, 0.4);
+  border-color: var(--primary);
   box-shadow: var(--shadow-md);
 }
 
@@ -716,8 +796,9 @@ a {
   width: 52px;
   height: 52px;
   border-radius: var(--radius-sm);
-  background: var(--primary-light);
-  color: var(--primary);
+  background: var(--amber-light);
+  color: var(--amber);
+  border: 1px solid rgba(245, 166, 35, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -737,7 +818,7 @@ a {
 /* How It Works Section */
 .process-section {
   padding: 100px 0;
-  background-color: var(--light-gray);
+  background-color: var(--bg-main);
 }
 
 .process-grid {
@@ -755,6 +836,7 @@ a {
   padding: 32px 24px;
   text-align: center;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .process-card:hover {
@@ -778,14 +860,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(30, 95, 217, 0.3);
+  box-shadow: 0 4px 10px rgba(30, 95, 217, 0.25);
 }
 
 .process-icon {
   width: 56px;
   height: 56px;
   margin: 12px auto 20px;
-  background: var(--light-gray);
+  background: var(--primary-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -817,7 +899,7 @@ a {
 }
 
 .contact-info-card {
-  background: var(--dark);
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   color: var(--white);
   border-radius: var(--radius-lg);
   padding: 44px;
@@ -888,7 +970,7 @@ a {
 }
 
 .contact-detail-text a:hover {
-  color: var(--primary);
+  color: var(--amber);
 }
 
 .contact-form-card {
@@ -927,7 +1009,7 @@ a {
 .form-group label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--dark);
+  color: var(--dark-text);
 }
 
 .form-control {
@@ -935,8 +1017,8 @@ a {
   padding: 12px 16px;
   font-size: 0.95rem;
   font-family: inherit;
-  color: var(--text-main);
-  background-color: var(--light-gray);
+  color: var(--dark-text);
+  background-color: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   transition: var(--transition);
@@ -976,7 +1058,7 @@ textarea.form-control {
 
 /* Footer */
 .footer {
-  background-color: var(--dark);
+  background-color: #0F172A;
   color: var(--white);
   padding: 70px 0 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1027,7 +1109,7 @@ textarea.form-control {
 }
 
 .footer-links a:hover {
-  color: var(--white);
+  color: var(--amber);
 }
 
 .footer-contact-item {
@@ -1138,7 +1220,7 @@ textarea.form-control {
   }
 
   .hero-image-card img {
-    height: 260px;
+    height: 280px;
   }
 
   .hero-badge {
@@ -1165,7 +1247,7 @@ textarea.form-control {
     font-size: 2.75rem;
   }
 
-  .service-card {
+  .service-content {
     padding: 24px;
   }
 

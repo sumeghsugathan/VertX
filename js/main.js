@@ -11,7 +11,7 @@ const firebaseConfig = {
   measurementId: "G-6BTMNY4CGG"
 };
 
-// Web3Forms Access Key for Instant Email Notifications to vertxenergies@gmail.com
+// Web3Forms Access Key for Instant Email Notifications to info@vertxenergies.com
 const WEB3FORMS_ACCESS_KEY = "6d1b68e8-a4ee-4b75-b3f7-ab923edcc461";
 
 // Initialize Firebase & Firestore Client
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         propertyType: propertyType,
         message: message,
         createdAt: new Date().toISOString(),
-        source: 'VertX Website Form',
+        source: 'VertX Website Form (vertxenergies.com)',
         status: 'New'
       };
 
@@ -162,10 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       }
 
-      // 2. Send Instant Email Notification to vertxenergies@gmail.com
+      // 2. Send Instant Email Notification to info@vertxenergies.com
       const emailPayload = {
         access_key: WEB3FORMS_ACCESS_KEY,
-        subject: `☀️ New Solar Lead: ${name} (${propertyType})`,
+        subject: `☀️ New Solar Lead: ${name} (${propertyType}) - vertxenergies.com`,
         from_name: "VertX Website",
         name: name,
         phone: phone,
